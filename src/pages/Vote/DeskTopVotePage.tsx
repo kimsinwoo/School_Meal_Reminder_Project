@@ -63,20 +63,20 @@ export default function DeskTopVotePage() {
     });
 
     const MenuNumber = styled(Box)({
-        width: '24px',
-        height: '24px',
+        width: '30px',
+        height: '30px',
         borderRadius: '50%',
         backgroundColor: '#E8EFFF',
         color: '#4B7BF5',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        fontSize: '14px',
+        fontSize: '17px',
     });
 
     const MenuTitle = styled(Box)({
         color: '#333',
-        fontSize: '14px',
+        fontSize: '17px',
         flex: 1,
     });
 

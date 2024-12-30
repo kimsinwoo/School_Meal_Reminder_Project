@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import zIndex from '@mui/material/styles/zIndex';
 
 export default function MobileNavbar() {
-    const location = useLocation(); // 현재 경로 가져오기
+    const location = useLocation();
+    const [isAdmin, setIsAdmin] = useState(false)
+    const [isLogin, setIsLogin] = useState(true)
 
     return (
         <div
@@ -47,11 +50,11 @@ export default function MobileNavbar() {
                     }}
                 />
             </Link>
-            <Link to="/admin" style={{ textDecoration: 'none' }}>
+            <Link to={isLogin ? (isAdmin ? "/admin" : "/mypage") : "/login"} style={{ textDecoration: 'none' }}>
                 <PersonOutlineIcon
                     style={{
                         fontSize: 35,
-                        color: location.pathname === '/admin' ? '#1976d2' : 'black',
+                        color: location.pathname === '/admin' && "/mypage" ? '#1976d2' : 'black',
                     }}
                 />
             </Link>

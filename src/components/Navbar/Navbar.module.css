@@ -39,7 +39,11 @@
     transition: box-shadow 150ms ease-in;
     cursor: pointer;
     text-decoration: none;
-    color: black;
+    color: rgb(103, 103, 103);
+    font-weight: 800;
+    gap: 0 6px;
+    font-size: 19px;
+    transition: all 0.3s;
 }
 
 .active {
@@ -51,7 +55,10 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: black;
+    color: #1976d2;
+    font-weight: 800;
+    gap: 0 6px;
+    font-size: 19px;
 }
 
 .menu:hover {
