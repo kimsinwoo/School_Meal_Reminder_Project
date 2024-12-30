@@ -1,0 +1,22 @@
+.title {
+    font-size: 37px;
+    background: linear-gradient(to right, #2563EB 0%, #9333EA 80%);
+    color: transparent;
+    -webkit-background-clip: text;
+}
+
+.subTitle {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(77, 77, 77);
+}
+
+.TitleContainer {
+    width: 100%;
+    text-align: center;
+}
+.container {
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}

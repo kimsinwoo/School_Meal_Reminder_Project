@@ -1,0 +1,38 @@
+.title {
+    font-size: 22px;
+    background: linear-gradient(to right, #2563EB 0%, #9333EA 80%);
+    color: transparent;
+    -webkit-background-clip: text;
+    margin-top: 15px;
+}
+
+.subTitle {
+    font-size: 13px;
+    font-weight: bold;
+    color: rgb(77, 77, 77);
+}
+
+.TitleContainer {
+    width: 100%;
+    text-align: center;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    flex-flow: column;
+}
+
+.Deskttitle {
+    font-size: 30px;
+    background: linear-gradient(to right, #2563EB 0%, #9333EA 80%);
+    color: transparent;
+    -webkit-background-clip: text;
+    margin-top: 15px;
+}
+
+.DeskSubTitle {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(77, 77, 77);
+}
