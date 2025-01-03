@@ -18,9 +18,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    // Jest 타입 정의 추가
+    "types": ["jest", "@testing-library/jest-dom"]
   },
+  // 테스트 파일 포함
   "include": [
-    "src"
+    "src",
+    "__tests__/**/*" // 테스트 파일 경로 추가
   ]
 }

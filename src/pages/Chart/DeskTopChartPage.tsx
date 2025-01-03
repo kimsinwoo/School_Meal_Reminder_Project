@@ -22,25 +22,42 @@ import {
 import { DeskTopNavbar } from "../../components";
 
 // 차트 데이터
-const barData = [
-    { name: "월", value: 200 },
-    { name: "화", value: 120 },
-    { name: "수", value: 200 },
-    { name: "목", value: 188 },
-    { name: "금", value: 189 },
-];
 
-const pieData = [
-    { name: "좋아요", value: 63 },
-    { name: "별로", value: 12 },
-];
 
-const COLORS = ["#4caf50", "#f44336"];
+interface props {
+    name: string;
+    likeCount: number
+    disLikeCount: number
+    mondayTotal: number;
+    tuesdayTotal: number;
+    wednesdayTotal: number;
+    thursdayTotal: number;
+    fridayTotal: number;
+    isAdmin: boolean;
+    date: string;
+    today: string;
+}
 
-export default function MuiWithRecharts() {
+export default function MuiWithRecharts({ date, name, likeCount, disLikeCount, mondayTotal, tuesdayTotal, wednesdayTotal, thursdayTotal, fridayTotal, isAdmin, today }: props) {
+
+    const barData = [
+        { name: "월", value: mondayTotal },
+        { name: "화", value: tuesdayTotal },
+        { name: "수", value: wednesdayTotal },
+        { name: "목", value: thursdayTotal },
+        { name: "금", value: fridayTotal },
+    ];
+
+    const pieData = [
+        { name: "좋아요", value: likeCount },
+        { name: "별로", value: disLikeCount },
+    ];
+
+    const COLORS = ["#4caf50", "#f44336"];
+
     return (
         <div>
-            <DeskTopNavbar />
+            <DeskTopNavbar name={name} isAdmin={isAdmin} />
             <Box
                 sx={{
                     minHeight: "70vh",
@@ -64,15 +81,17 @@ export default function MuiWithRecharts() {
                                 sx={{ background: "#ede7f6", py: 1 }}
                             />
                             <Divider />
+                            <Typography sx={{textAlign: "center", fontSize: "18px", fontWeight: 700}} >{date}</Typography>
                             <CardContent>
                                 <ResponsiveContainer width="100%" height={300}>
-                                    <BarChart data={barData}>
-                                        <XAxis dataKey="name" stroke="#555" />
-                                        <YAxis stroke="#555" />
-                                        <Tooltip />
-                                        <Bar dataKey="value" fill="#82ca9d" />
-                                    </BarChart>
+                                        <BarChart data={barData}>
+                                            <XAxis dataKey="name" stroke="#555" />
+                                            <YAxis stroke="#555" />
+                                            <Tooltip />
+                                            <Bar dataKey="value" fill="#82ca9d" />
+                                        </BarChart>
                                 </ResponsiveContainer>
+
                             </CardContent>
                         </Card>
                     </Grid>
@@ -90,6 +109,7 @@ export default function MuiWithRecharts() {
                                 sx={{ background: "#fce4ec", py: 1 }}
                             />
                             <Divider />
+                            <Typography sx={{textAlign: "center", fontSize: "18px", fontWeight: 700}} >{today}</Typography>
                             <CardContent>
                                 <ResponsiveContainer width="100%" height={300}>
                                     <PieChart>

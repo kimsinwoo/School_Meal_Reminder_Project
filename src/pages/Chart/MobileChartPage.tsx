@@ -20,22 +20,36 @@ import {
     Pie,
     Cell,
 } from "recharts";
-const barData = [
-    { name: "월", value: 200 },
-    { name: "화", value: 120 },
-    { name: "수", value: 200 },
-    { name: "목", value: 188 },
-    { name: "금", value: 189 },
-];
 
-const pieData = [
-    { name: "좋아요", value: 63 },
-    { name: "별로", value: 12 },
-];
+interface props {
+    likeCount: number;
+    disLikeCount: number;
+    mondayTotal: number;
+    tuesdayTotal: number;
+    wednesdayTotal: number;
+    thursdayTotal: number;
+    fridayTotal: number;
+    date: string;
+    today: string;
+}
 
-const COLORS = ["#4caf50", "#f44336"];
+export default function MobileChartPage({ date, likeCount, disLikeCount, mondayTotal, tuesdayTotal, wednesdayTotal, thursdayTotal, fridayTotal, today }: props) {
 
-export default function MobileChartPage() {
+    const barData = [
+        { name: "월", value: mondayTotal },
+        { name: "화", value: tuesdayTotal },
+        { name: "수", value: wednesdayTotal },
+        { name: "목", value: thursdayTotal },
+        { name: "금", value: fridayTotal },
+    ];
+
+    const pieData = [
+        { name: "좋아요", value: likeCount },
+        { name: "별로", value: disLikeCount },
+    ];
+
+    const COLORS = ["#4caf50", "#f44336"];
+
     return (
         <div>
             <div>
@@ -62,6 +76,7 @@ export default function MobileChartPage() {
                                     sx={{ background: "#ede7f6", py: 1 }}
                                 />
                                 <Divider />
+                                <Typography sx={{textAlign: "center", fontSize: "18px", fontWeight: 700}}>{date}</Typography>
                                 <CardContent>
                                     <ResponsiveContainer width="100%" height={300}>
                                         <BarChart data={barData}>
@@ -88,6 +103,7 @@ export default function MobileChartPage() {
                                     sx={{ background: "#fce4ec", py: 1 }}
                                 />
                                 <Divider />
+                                <Typography sx={{textAlign: "center", fontSize: "18px", fontWeight: 700}} >{today}</Typography>
                                 <CardContent>
                                     <ResponsiveContainer width="100%" height={300}>
                                         <PieChart>

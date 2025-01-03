@@ -6,6 +6,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(to left, #FAF5FF,#EFF6FF);
+  min-height: 85vh;
+}
+
+html {
+  background: linear-gradient(to left, #FAF5FF,#EFF6FF);
 }
 
 * {
@@ -16,4 +21,8 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.recharts-bar-background-rectangle {
+  display: none !important;
 }

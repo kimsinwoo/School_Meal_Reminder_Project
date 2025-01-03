@@ -5,10 +5,14 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import BarChartIcon from '@mui/icons-material/BarChart';
 
-export default function DeskTopNavbar() {
+interface props {
+    name: string;
+    isAdmin: boolean;
+}
+
+export default function DeskTopNavbar({isAdmin, name}: props) {
     const location = useLocation();
-    const [isAdmin, setIsAdmin] = useState(false)
-    const [isLogin, setIsLogin] = useState(false)
+    const [isLogin, setIsLogin] = useState(localStorage.getItem("accessToken") ? true : false)
 
     return (
         <div className={style.DeskNavbarContainer}>
@@ -17,11 +21,20 @@ export default function DeskTopNavbar() {
                     <h1 className={style.title}>오늘 급식 어때?</h1>
                     <span className={style.subTitle}>오늘의 급식을 여러분들이 평가를 해보세요!!</span>
                 </div>
-                <h2>
-                    <Link style={{ color: "blue" }} to={
-                        isAdmin ? "/admin" : "/mypage"
-                    }>김신우</Link> 님, 안녕하세요!
-                </h2>
+                
+                    {
+                        isLogin ? 
+                        <h2>
+                            <Link style={{ color: "blue" }} to={
+                                isAdmin ? "/admin" : "/mypage"
+                            }>{name}</Link> 님, 안녕하세요!
+                        </h2> :
+                        <>
+                            <Link className={style.login} to="/login">로그인</Link>
+                            <Link className={style.register} to="/register">회원가입</Link>
+                        </>
+                    }
+
             </div>
             <div>
                 <Link

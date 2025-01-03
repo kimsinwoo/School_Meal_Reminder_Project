@@ -18,6 +18,7 @@
     margin-top: 10px;
     justify-content: space-around;
     align-items: center;
+    z-index: 1000;
 }
 .DeskNavbarContainer>div {
     background-color: white;
@@ -69,4 +70,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.login,
+.register {
+    background-color: rgb(230, 230, 230);
+    box-shadow: 1px 2px 5px -1px gray;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 5px;
+    color: rgb(40, 40, 40);
+    font-size: 17px;
+    font-weight: 600;
 }

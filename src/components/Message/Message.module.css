@@ -1,0 +1,39 @@
+.MessageContainer {
+    padding: 13px;
+    background-color: white;
+    box-shadow: 1px 4px 6px -2px gray;
+    border-radius: 12px;
+    position: absolute;
+    top: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: inout 3.5s forwards;
+}
+
+.ErrorMessage,
+.SuccessMessage {
+    font-weight: 700;
+}
+
+.ErrorMessage {
+    color: #F44336;
+}
+
+.SuccessMessage {
+    color: #4CAF50;
+}
+
+@keyframes inout {
+    0% {
+        top: -10%;
+    }
+    20% {
+        top: 3%;
+    }
+    80% {
+        top: 3%;
+    }
+    100% {
+        top: -10%;
+    }
+}

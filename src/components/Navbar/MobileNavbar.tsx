@@ -9,7 +9,7 @@ import zIndex from '@mui/material/styles/zIndex';
 export default function MobileNavbar() {
     const location = useLocation();
     const [isAdmin, setIsAdmin] = useState(false)
-    const [isLogin, setIsLogin] = useState(true)
+    const [isLogin, setIsLogin] = useState(localStorage.getItem("accessToken")?true:false)
 
     return (
         <div
@@ -19,9 +19,11 @@ export default function MobileNavbar() {
                 position: 'fixed',
                 width: '100%',
                 bottom: 0,
-                backgroundColor: 'white',
                 padding: '20px 0',
                 borderTop: '1px solid #ddd',
+                zIndex: 100,
+                background: "hsla(0, 0%, 100%, 0.6)",
+                backdropFilter: "saturate(180%) blur(3px)"
             }}
         >
             <Link to="/" style={{ textDecoration: 'none' }}>
